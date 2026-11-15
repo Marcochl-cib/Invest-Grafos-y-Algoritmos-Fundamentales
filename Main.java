@@ -8,6 +8,11 @@ public class Main {
         grafo.agregarArista('C', 'E', 6);
         grafo.agregarArista('D', 'E', 3);
 
+        GrafoMatriz matriz = new GrafoMatriz(grafo);
+        System.out.println("Matriz de adyacencia (- = sin arista)");
+        System.out.println(matriz);
+        System.out.println();
+
         System.out.println("BFS desde A: " + Recorridos.bfs(grafo, 'A'));
         System.out.println("DFS desde A: " + Recorridos.dfs(grafo, 'A'));
     }
