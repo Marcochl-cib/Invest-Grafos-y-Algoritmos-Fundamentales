@@ -28,4 +28,24 @@ public class Recorridos {
 
         return orden;
     }
+    public static List<Character> dfs(GrafoLista grafo, char inicio) {
+        Set<Character> visitados = new HashSet<>();
+        List<Character> orden = new ArrayList<>();
+        visitarEnProfundidad(grafo, inicio, visitados, orden);
+        return orden;
+    }
+
+    private static void visitarEnProfundidad(
+            GrafoLista grafo, char actual, Set<Character> visitados, List<Character> orden) {
+        visitados.add(actual);
+        orden.add(actual);
+
+        for (GrafoLista.Arista arista : grafo.vecinosDe(actual)) {
+            char vecino = arista.destino();
+            if (!visitados.contains(vecino)) {
+                visitarEnProfundidad(grafo, vecino, visitados, orden);
+            }
+        }
+    }
 }
+
