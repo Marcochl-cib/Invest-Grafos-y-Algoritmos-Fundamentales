@@ -9,5 +9,6 @@ public class Main {
         grafo.agregarArista('D', 'E', 3);
 
         System.out.println("BFS desde A: " + Recorridos.bfs(grafo, 'A'));
+        System.out.println("DFS desde A: " + Recorridos.dfs(grafo, 'A'));
     }
 }
