@@ -15,5 +15,16 @@ public class Main {
 
         System.out.println("BFS desde A: " + Recorridos.bfs(grafo, 'A'));
         System.out.println("DFS desde A: " + Recorridos.dfs(grafo, 'A'));
+
+        System.out.println();
+        mostrarArbol("Prim desde A", ArbolExpansionMinima.prim(grafo, 'A'));
+        mostrarArbol("Kruskal", ArbolExpansionMinima.kruskal(grafo));
+    }
+        private static void mostrarArbol(String nombre, List<ArbolExpansionMinima.Arista> arbol) {
+        long pesoTotal = 0;
+        for (ArbolExpansionMinima.Arista arista : arbol) {
+            pesoTotal += arista.peso();
+        }
+        System.out.println(nombre + ": " + arbol + " | Peso total: " + pesoTotal);
     }
 }
